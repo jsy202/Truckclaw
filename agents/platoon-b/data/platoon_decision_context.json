@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "map": "Town06",
+  "discord_channel": "platoon-transfer",
+  "bot_name": "openclaw-platoon-b",
+  "platoon_id": "platoon_b",
+  "destinations": {
+    "dest_a": {
+      "label": "Highway Lane -3",
+      "description": "road=37 lane=-3 (y\u2248137) \u2014 \ub3d9\ucabd \ubcf8\uc120 \uc88c\uce21 \ucc28\uc120 \uacc4\uc18d \uc8fc\ud589",
+      "location": {
+        "x": 600.0,
+        "y": 137.0,
+        "z": 0.0
+      }
+    },
+    "dest_b": {
+      "label": "Highway Lane -5",
+      "description": "road=37 lane=-5 (y\u2248144) \u2014 \ub3d9\ucabd \ubcf8\uc120 \uc6b0\uce21 \ucc28\uc120 \uacc4\uc18d \uc8fc\ud589",
+      "location": {
+        "x": 600.0,
+        "y": 144.0,
+        "z": 0.0
+      }
+    }
+  },
+  "own_platoon": {
+    "platoon_id": "platoon_b",
+    "leader_vehicle_id": "platoon_b_truck0",
+    "ordered_members": [
+      "platoon_b_truck0",
+      "platoon_b_truck1",
+      "platoon_b_truck2"
+    ],
+    "destination_id": "dest_b"
+  },
+  "peer_platoon": {
+    "platoon_id": "platoon_a",
+    "leader_vehicle_id": "platoon_a_truck0"
+  },
+  "own_vehicles": [
+    {
+      "vehicle_id": "platoon_b_truck0",
+      "local_truck_id": 0,
+      "platoon_id": "platoon_b",
+      "destination_id": "dest_b",
+      "role": "leader"
+    },
+    {
+      "vehicle_id": "platoon_b_truck1",
+      "local_truck_id": 1,
+      "platoon_id": "platoon_b",
+      "destination_id": "dest_b",
+      "role": "follower"
+    },
+    {
+      "vehicle_id": "platoon_b_truck2",
+      "local_truck_id": 2,
+      "platoon_id": "platoon_b",
+      "destination_id": "dest_b",
+      "role": "follower"
+    }
+  ],
+  "transfer_rules": {
+    "match_mode": "destination_match",
+    "target_position": "tail",
+    "max_concurrent": 1
+  },
+  "decision_policy": {
+    "never_transfer_leader": true,
+    "tail_join_only": true,
+    "max_concurrent": 1,
+    "require_destination_match": true
+  }
+}

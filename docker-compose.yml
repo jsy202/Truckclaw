@@ -1,0 +1,28 @@
+services:
+  openclaw-platoon-a:
+    image: ${OPENCLAW_IMAGE:-openclaw:local}
+    container_name: openclaw-platoon-a
+    environment:
+      HOME: /data/openclaw
+      DISCORD_BOT_TOKEN: ${PLATOON_A_DISCORD_BOT_TOKEN}
+      OPENCLAW_GATEWAY_TOKEN: ${PLATOON_A_OPENCLAW_GATEWAY_TOKEN}
+    volumes:
+      - ${PLATOON_A_CONFIG_DIR:-./.openclaw-platoon-a}:/data/openclaw
+      - ./bridge:/project/scripts
+    ports:
+      - "18789:18789"
+    restart: unless-stopped
+
+  openclaw-platoon-b:
+    image: ${OPENCLAW_IMAGE:-openclaw:local}
+    container_name: openclaw-platoon-b
+    environment:
+      HOME: /data/openclaw
+      DISCORD_BOT_TOKEN: ${PLATOON_B_DISCORD_BOT_TOKEN}
+      OPENCLAW_GATEWAY_TOKEN: ${PLATOON_B_OPENCLAW_GATEWAY_TOKEN}
+    volumes:
+      - ${PLATOON_B_CONFIG_DIR:-./.openclaw-platoon-b}:/data/openclaw
+      - ./bridge:/project/scripts
+    ports:
+      - "18790:18790"
+    restart: unless-stopped

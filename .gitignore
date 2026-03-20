@@ -1,0 +1,28 @@
+# 환경변수/시크릿
+.env
+*.env
+
+# OpenClaw 런타임 디렉토리 (토큰/세션 포함)
+.openclaw-platoon-a/
+.openclaw-platoon-b/
+.openclaw/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# 결과/로그
+*.png
+*.log
+*.csv
+
+# 에디터
+.vscode/
+.idea/
+*.swp
